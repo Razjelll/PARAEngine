@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj",
 		{4BBDD6BD-378C-4D80-9DBC-3858B0DCF39B} = {4BBDD6BD-378C-4D80-9DBC-3858B0DCF39B}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PARAEngineTest", "PARAEngineTest\PARAEngineTest.vcxproj", "{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -34,6 +36,14 @@ Global
 		{3F0DE0DE-9E68-4D3F-BF81-1349265C80E1}.Release|x64.Build.0 = Release|x64
 		{3F0DE0DE-9E68-4D3F-BF81-1349265C80E1}.Release|x86.ActiveCfg = Release|Win32
 		{3F0DE0DE-9E68-4D3F-BF81-1349265C80E1}.Release|x86.Build.0 = Release|Win32
+		{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}.Debug|x64.ActiveCfg = Debug|x64
+		{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}.Debug|x64.Build.0 = Debug|x64
+		{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}.Debug|x86.ActiveCfg = Debug|Win32
+		{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}.Debug|x86.Build.0 = Debug|Win32
+		{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}.Release|x64.ActiveCfg = Release|x64
+		{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}.Release|x64.Build.0 = Release|x64
+		{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}.Release|x86.ActiveCfg = Release|Win32
+		{30E704BC-EFBA-4F6A-B0EC-59E9EF720104}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

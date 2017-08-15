@@ -16,6 +16,9 @@
 
 #define DEBUG
 #define GL_CHECK_ERRORS assert(glGetError()== GL_NO_ERROR);
+
+using namespace Para;
+
 int main(int argcp, char* argv[])
 {
 	//Window* window = new GLWindow(800, 600, "ParaEngine", false, argcp, argv);
@@ -23,9 +26,10 @@ int main(int argcp, char* argv[])
 	Engine engine(window);
 	engine.start();*/
 
-	GLWindow* window = new GLWindow(800, 600, "ParaEngine", false, argcp, argv);
+	Para::GLWindow* window = new Para::GLWindow(800, 600, "ParaEngine", false, argcp, argv);
 	window->init();
-	Engine engine(window);
+	Para::Engine engine;
+	engine.init(window);
 	engine.start();
 	Para::ObjLoader loader;
 	Para::Mesh* mesh = loader.load("D:/kostka.obj");
@@ -33,14 +37,21 @@ int main(int argcp, char* argv[])
 	
 	GLGpuProgram* program = new GLGpuProgram();
 	GL_CHECK_ERRORS;
-	program->addShader(new GLShader(ShaderType::VERTEX_SHADER, "../PARAEngine/Shaders/shader_vert.glsl"));
-	program->addShader(new GLShader(ShaderType::FRAGMENT_SHADER, "../PARAEngine/Shaders/shader_frag.glsl"));
+	//program->addShader(new GLShader(ShaderType::VERTEX_SHADER, "../PARAEngine/Shaders/shader_vert.glsl"));
+	GLShader* shader = new GLShader(ShaderType::VERTEX_SHADER, "shader_vert");
+	shader->load("../PARAEngine/Shaders/shader_vert.glsl");
+	program->addShader(shader);
+	GLShader* shader2 = new GLShader(ShaderType::FRAGMENT_SHADER, "shader_frag");
+	shader2->load("../PARAEngine/Shaders/shader_frag.glsl");
+	program->addShader(shader2);
+	//program->addShader(new GLShader(ShaderType::FRAGMENT_SHADER, "../PARAEngine/Shaders/shader_frag.glsl"));
 	program->create();
 	GL_CHECK_ERRORS;
 	program->bind();
 	program->addAttribute("inPosition");
 	program->addAttribute("inNormals");
 	program->addAttribute("inUV");
+	program->addUniform("MVP", UniformType::MAT4);
 	program->unbind();
 	GL_CHECK_ERRORS;
 

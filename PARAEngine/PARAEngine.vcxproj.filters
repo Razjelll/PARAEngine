@@ -25,96 +25,138 @@
     <Filter Include="Rendering\Base">
       <UniqueIdentifier>{19849d3a-a310-43bb-8291-166fa6fea7f5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Rendering\OpenGL\include">
-      <UniqueIdentifier>{348123b5-945d-4dda-977b-b7ab7bb6924c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Rendering\OpenGL\src">
-      <UniqueIdentifier>{46362c57-894d-40a6-b46d-6307d3a71da7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utils">
       <UniqueIdentifier>{d338beb7-f1e7-42e6-8496-729df37a5bac}</UniqueIdentifier>
     </Filter>
     <Filter Include="Shaders">
       <UniqueIdentifier>{903e6e2c-668d-4009-aca9-cecbac7b7be8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EntitySystem">
+      <UniqueIdentifier>{3e5f42ba-2a46-4850-a21e-9af91ded930c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{5ff63495-87ba-486b-b2b4-2d6c8267d6aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Rendering\Base\Window.hpp">
-      <Filter>Rendering\Base</Filter>
+    <ClInclude Include="Code\EntitySystem\Component.hpp">
+      <Filter>EntitySystem</Filter>
     </ClInclude>
-    <ClInclude Include="Rendering\OpenGL\GLWindow.hpp">
-      <Filter>Rendering\OpenGL\include</Filter>
+    <ClInclude Include="Code\EntitySystem\Entity.hpp">
+      <Filter>EntitySystem</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Engine.hpp">
+    <ClInclude Include="Code\Core\Engine.hpp">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Rendering\OpenGL\SDLWindow.hpp">
-      <Filter>Rendering\OpenGL\include</Filter>
-    </ClInclude>
-    <ClInclude Include="Rendering\Base\GpuProgram.hpp">
-      <Filter>Rendering\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Rendering\Base\RenderingSystem.hpp">
-      <Filter>Rendering\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Platform.hpp">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Rendering\OpenGL\GLGpuProgram.hpp">
-      <Filter>Rendering\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils\FileReader.hpp">
-      <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils\ObjLoader.hpp">
-      <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Mesh.hpp">
+    <ClInclude Include="Code\Core\Mesh.hpp">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Rendering\OpenGL\GLVertexBuffer.hpp">
+    <ClInclude Include="Code\Core\Resource.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Core\ResourceManager.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Core\ResourceMap.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Core\Transform.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Math\Vector2.hpp">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Math\Vector3.hpp">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\Base\GpuProgram.hpp">
+      <Filter>Rendering\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\Base\Window.hpp">
+      <Filter>Rendering\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\OpenGL\GLGpuProgram.hpp">
       <Filter>Rendering\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="Rendering\OpenGL\GLRenderElement.hpp">
+    <ClInclude Include="Code\Rendering\OpenGL\GLRenderElement.hpp">
       <Filter>Rendering\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\OpenGL\GLVertexBuffer.hpp">
+      <Filter>Rendering\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\OpenGL\GLWindow.hpp">
+      <Filter>Rendering\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\OpenGL\SDLWindow.hpp">
+      <Filter>Rendering\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Utils\FileReader.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Utils\HashUtils.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Utils\ObjLoader.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\Base\RenderingSystem.hpp">
+      <Filter>Rendering\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Rendering\OpenGL\GLWindow.cpp">
-      <Filter>Rendering\OpenGL\src</Filter>
+    <ClCompile Include="Code\EntitySystem\Component.cpp">
+      <Filter>EntitySystem</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Engine.cpp">
+    <ClCompile Include="Code\EntitySystem\Entity.cpp">
+      <Filter>EntitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Core\Engine.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="Rendering\OpenGL\SDLWindow.cpp">
-      <Filter>Rendering\OpenGL\src</Filter>
-    </ClCompile>
-    <ClCompile Include="Rendering\Base\GpuProgram.cpp">
-      <Filter>Rendering\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Rendering\Base\RenderingSystem.cpp">
-      <Filter>Rendering\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Rendering\OpenGL\GLGpuProgram.cpp">
-      <Filter>Rendering\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils\FileReader.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils\ObjLoader.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Mesh.cpp">
+    <ClCompile Include="Code\Core\Mesh.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="Rendering\OpenGL\GLVertexBuffer.cpp">
+    <ClCompile Include="Code\Core\Resource.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Core\ResourceManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Core\Transform.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Rendering\Base\GpuProgram.cpp">
+      <Filter>Rendering\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Rendering\OpenGL\GLGpuProgram.cpp">
       <Filter>Rendering\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Rendering\OpenGL\GLRenderElement.cpp">
+    <ClCompile Include="Code\Rendering\OpenGL\GLRenderElement.cpp">
       <Filter>Rendering\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Rendering\OpenGL\GLVertexBuffer.cpp">
+      <Filter>Rendering\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Rendering\OpenGL\GLWindow.cpp">
+      <Filter>Rendering\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Rendering\OpenGL\SDLWindow.cpp">
+      <Filter>Rendering\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Utils\FileReader.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Utils\HashUtils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Utils\ObjLoader.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Rendering\Base\RenderingSystem.cpp">
+      <Filter>Rendering\Base</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
