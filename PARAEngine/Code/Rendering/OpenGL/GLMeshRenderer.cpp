@@ -1,6 +1,7 @@
-#include "GLRenderElement.hpp"
+#include "GLMeshRenderer.hpp"
 #include "../../Libraries/glm/gtc/matrix_transform.hpp"
 #include "../../Libraries/glm/gtc/type_ptr.hpp"
+
 using namespace Para;
 
 const std::string POSITION_ATTRIBUTE = "inPosition";
@@ -9,18 +10,18 @@ const std::string UVS_ATTTRIBUTE = "inUV";
 
 #define GL_CHECK_ERRORS assert(glGetError()== GL_NO_ERROR);
 
-GLRenderElement::GLRenderElement()
+GLMeshRenderer::GLMeshRenderer(Entity& entity, GLGpuProgram* program) : MeshRenderer(entity), m_program(program)
 {
 }
 
 
-GLRenderElement::~GLRenderElement()
+GLMeshRenderer::~GLMeshRenderer()
 {
 	glDeleteBuffers(BUFFERS_SIZE, m_buffers);
 	glDeleteVertexArrays(1, &m_vao_id);
 }
 
-void GLRenderElement::draw()
+void GLMeshRenderer::draw()
 {
 	glBindVertexArray(m_vao_id);
 	m_program->bind();
@@ -41,9 +42,9 @@ void GLRenderElement::draw()
 	
 }
 
-void GLRenderElement::load(Mesh* mesh, GLGpuProgram* program)
+void GLMeshRenderer::load(Mesh* mesh)
 {
-	m_program = program;
+	//m_program = program;
 	glGenVertexArrays(1, &m_vao_id);
 	glBindVertexArray(m_vao_id);
 	GL_CHECK_ERRORS;

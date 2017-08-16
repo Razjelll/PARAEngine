@@ -4,7 +4,7 @@
 
 using namespace Para;
 
-const std::string SHADERS_PATH = "../Shaders/";
+//const std::string SHADERS_PATH = "../Shaders/";
 
 #define GL_CHECK_ERRORS assert(glGetError()== GL_NO_ERROR);
 
@@ -29,18 +29,23 @@ GLShader::~GLShader()
 	}
 }
 
-void GLShader::loadResource(const std::string& filename)
+bool GLShader::loadResource(const std::string& filename)
 {
 	std::string shaderSource;
 	//TODO zastanowiæ siê czy œcie¿ka do shaderów powinna byæ w tym miejscu 
-	FileReader::read(SHADERS_PATH + filename, shaderSource);
-	loadFromString(shaderSource);
+	FileReader::read(filename, shaderSource);
+	if (shaderSource.empty())
+	{
+		return false;
+	}
+	return loadFromString(shaderSource);
 }
 
-void GLShader::unloadResource()
+bool GLShader::unloadResource()
 {
 	glDeleteShader(m_id);
 	m_id = -1;
+	return true;
 }
 
 /*GLShader::~GLShader() 
@@ -80,7 +85,7 @@ void checkErrors() {
 	}
 }
 
-void GLShader::loadFromString(const std::string& source)
+bool GLShader::loadFromString(const std::string& source)
 {
 	GLenum type = getGLShaderType(m_shader_type);
 	GL_CHECK_ERRORS;
@@ -89,6 +94,10 @@ void GLShader::loadFromString(const std::string& source)
 	glShaderSource(shaderID, 1, &shaderSource, NULL);
 
 	GL_CHECK_ERRORS;
+	if (shaderID < 0)
+	{
+		return false; //nie uda³o siê wczytaæ shadera
+	}
 	m_id = shaderID;
 #define DEBUG
 #if defined(DEBUG)
@@ -104,13 +113,14 @@ void GLShader::loadFromString(const std::string& source)
 		glGetShaderInfoLog(shaderID, infoLogLength, NULL, infoLog);
 		std::cerr << "Compile log: " << infoLog << std::endl;
 		delete[] infoLog;
+		return false;
 	}
 	else {
 		std::cout << "Compile successful" << std::endl;
 	}
 	GL_CHECK_ERRORS;
-	
 #endif
+	return true;
 }
 
 //TODO ta metoda zostanie usuniêta, albo to wy¿ej zostanie do niej wrzucone
@@ -188,6 +198,7 @@ void GLGpuProgram::create()
 
 void GLGpuProgram::addShader(Shader* shader)
 {
+	assert(shader != nullptr);
 	m_shaders.push_back(shader);
 	glAttachShader(m_program_id, shader->getID());
 }

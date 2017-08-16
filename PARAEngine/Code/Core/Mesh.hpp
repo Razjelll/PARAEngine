@@ -26,7 +26,7 @@ namespace Para
 
 		void setVertices(const std::vector<Vertex>& vertices) { m_vertices = vertices; }
 		void setName(const std::string& name) { m_name = name; }
-
+		void setPath(const std::string& path) { m_path = path; }
 		std::vector<Vertex>& getVertices() { return m_vertices; }
 		void setTotalTriangles(int totalTriangles) { m_total_triangles = totalTriangles; }
 		
@@ -37,6 +37,8 @@ namespace Para
 	private:
 		std::vector<Vertex> m_vertices;
 		std::string m_name;
+		/// zawiera œcie¿kê do pliku w którym zawiera siê siatka
+		std::string m_path;
 
 		bool m_has_normals;
 		bool m_has_uv;

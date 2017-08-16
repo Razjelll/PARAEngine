@@ -87,7 +87,7 @@ namespace PARAEngineTest
 		}
 
 
-		TEST_METHOD(DetachTimeTest)
+		/*TEST_METHOD(DetachTimeTest)
 		{
 
 			Entity* entity = new Entity(0);
@@ -109,7 +109,8 @@ namespace PARAEngineTest
 				delete ent;
 			}
 			entities.clear();*/
-			delete entity;
-		}
+			
+		/*delete entity;
+		}*/
 	};
 }

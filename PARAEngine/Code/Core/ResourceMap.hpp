@@ -6,6 +6,7 @@
 #include "../Core/Resource.hpp"
 #include <memory>
 #include <algorithm>
+#include "../Utils/HashUtils.hpp"
 
 namespace Para
 {
@@ -17,12 +18,18 @@ namespace Para
 		ResourceMap() {};
 		~ResourceMap()
 		{
-			removeAll();
+			clear();
 		};
 		
 		ResourcePtr get(GUID guid)
 		{
 			return m_resource_map.find(guid)->second;
+		}
+
+		ResourcePtr get(const std::string& name)
+		{
+			GUID hash = HashUtils::hash(name);
+			return get(hash);
 		}
 
 		void put(GUID guid, ResourcePtr resource)
@@ -37,11 +44,11 @@ namespace Para
 
 		void remove(GUID guid)
 		{
-			delete m_resource_map.find(guid)->second;
+			//delete m_resource_map.find(guid)->second;
 			m_resource_map.erase(guid);
 		}
 
-		void removeAll()
+		void clear()
 		{
 			/*auto begin = m_resource_map.begin();
 			auto end = m_resource_map.end();

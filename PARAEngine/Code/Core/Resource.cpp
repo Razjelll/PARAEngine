@@ -1,12 +1,18 @@
 #include "Resource.hpp"
+#include "../Utils/HashUtils.hpp"
 
 using namespace Para;
+
+Resource::Resource(const std::string& name, ResourceListener* listener) :m_name(name), m_listener(listener)
+{
+	m_guid = HashUtils::hash(name);
+}
 
 Resource::~Resource()
 {
 }
 
-void Resource::load(const std::string& filename, bool background)
+bool Resource::load(const std::string& filename, bool background)
 {
 	//TODO narazie bardzo prosta metoda
 	if (background)
@@ -15,16 +21,17 @@ void Resource::load(const std::string& filename, bool background)
 	}
 	else
 	{
-		loadResource(filename);
-		if (m_listener != nullptr)
+		bool success = loadResource(filename);
+		if (success && m_listener != nullptr)
 		{
 			m_listener->loadingComplete();
 		}
+		return success;
 	}
 	//TODO dorobiæ tutaj jeszcze pobieranie nazwy origin, oraz pobieranie rozmiaru
 }
 
-void Resource::unload(bool background)
+bool Resource::unload(bool background)
 {
 	if (background)
 	{
@@ -32,10 +39,11 @@ void Resource::unload(bool background)
 	} 
 	else
 	{
-		unloadResource();
-		if (m_listener != nullptr)
+		bool success = unloadResource();
+		if (success && m_listener != nullptr)
 		{
 			m_listener->unloadingComplete();
 		}
+		return success;
 	}
 }

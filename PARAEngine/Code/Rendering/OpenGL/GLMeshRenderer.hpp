@@ -4,8 +4,8 @@
 
 #include "../OpenGL/OpenGL/include/glew.h"
 #include "../OpenGL/GLGpuProgram.hpp"
-#include "../../Core/Mesh.hpp"
-
+#include "../../Core/Mesh.hpp" //TODO mo¿na przedstawiæ za pomoc¹ class
+#include "../Base/MeshRenderer.hpp"
 namespace Para
 {
 	enum Buffers
@@ -22,13 +22,16 @@ namespace Para
 		UVS
 	};
 
-	class GLRenderElement
+	class GLMeshRenderer : public MeshRenderer
 	{
 	public:
-		GLRenderElement();
-		~GLRenderElement();
-		void draw();
-		void load(Mesh* mesh, GLGpuProgram* program);
+		GLMeshRenderer(Entity& entity, GLGpuProgram* program);
+		~GLMeshRenderer();
+		void draw() override;
+		//void load(Mesh* mesh) override;
+		void load(Mesh* mesh) override;
+		
+		void setProgram(GLGpuProgram* program) { m_program = program; }
 	private:
 		GLuint m_vao_id;
 		GLuint m_buffers[BUFFERS_SIZE];

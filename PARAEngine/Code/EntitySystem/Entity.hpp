@@ -4,7 +4,7 @@
 #pragma once
 
 #include "../Core/Transform.hpp"
-#include "Component.hpp"
+
 #include <vector>
 #include <memory>
 
@@ -12,6 +12,8 @@ typedef unsigned int EntityID;
 
 namespace Para
 {
+	class Component;
+
 	struct Components
 	{
 		std::vector<Component*> components;

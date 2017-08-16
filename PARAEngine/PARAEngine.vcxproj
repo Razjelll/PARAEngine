@@ -25,22 +25,26 @@
     <ClInclude Include="Code\Core\ResourceManager.hpp" />
     <ClInclude Include="Code\Core\ResourceMap.hpp" />
     <ClInclude Include="Code\Core\Transform.hpp" />
+    <ClInclude Include="Code\Core\Typedefs.hpp" />
+    <ClInclude Include="Code\EntitySystem\CameraComponent.hpp" />
     <ClInclude Include="Code\EntitySystem\Component.hpp" />
     <ClInclude Include="Code\EntitySystem\Entity.hpp" />
     <ClInclude Include="Code\Math\Vector2.hpp" />
     <ClInclude Include="Code\Math\Vector3.hpp" />
     <ClInclude Include="Code\Rendering\Base\GpuProgram.hpp" />
+    <ClInclude Include="Code\Rendering\Base\MeshRenderer.hpp" />
+    <ClInclude Include="Code\Rendering\Base\RenderElement.hpp" />
     <ClInclude Include="Code\Rendering\Base\RenderingSystem.hpp" />
+    <ClInclude Include="Code\Rendering\Base\RenderScene.hpp" />
     <ClInclude Include="Code\Rendering\Base\Window.hpp" />
     <ClInclude Include="Code\Rendering\OpenGL\GLGpuProgram.hpp" />
-    <ClInclude Include="Code\Rendering\OpenGL\GLRenderElement.hpp" />
+    <ClInclude Include="Code\Rendering\OpenGL\GLMeshRenderer.hpp" />
     <ClInclude Include="Code\Rendering\OpenGL\GLVertexBuffer.hpp" />
     <ClInclude Include="Code\Rendering\OpenGL\GLWindow.hpp" />
     <ClInclude Include="Code\Rendering\OpenGL\SDLWindow.hpp" />
     <ClInclude Include="Code\Utils\FileReader.hpp" />
     <ClInclude Include="Code\Utils\HashUtils.hpp" />
     <ClInclude Include="Code\Utils\ObjLoader.hpp" />
-    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGLCommon\OpenGLCommon.vcxproj">
@@ -53,18 +57,24 @@
     <ClCompile Include="Code\Core\Resource.cpp" />
     <ClCompile Include="Code\Core\ResourceManager.cpp" />
     <ClCompile Include="Code\Core\Transform.cpp" />
+    <ClCompile Include="Code\EntitySystem\CameraComponent.cpp" />
     <ClCompile Include="Code\EntitySystem\Component.cpp" />
     <ClCompile Include="Code\EntitySystem\Entity.cpp" />
     <ClCompile Include="Code\Rendering\Base\GpuProgram.cpp" />
     <ClCompile Include="Code\Rendering\Base\RenderingSystem.cpp" />
+    <ClCompile Include="Code\Rendering\Base\RenderScene.cpp" />
     <ClCompile Include="Code\Rendering\OpenGL\GLGpuProgram.cpp" />
-    <ClCompile Include="Code\Rendering\OpenGL\GLRenderElement.cpp" />
+    <ClCompile Include="Code\Rendering\OpenGL\GLMeshRenderer.cpp" />
     <ClCompile Include="Code\Rendering\OpenGL\GLVertexBuffer.cpp" />
     <ClCompile Include="Code\Rendering\OpenGL\GLWindow.cpp" />
     <ClCompile Include="Code\Rendering\OpenGL\SDLWindow.cpp" />
     <ClCompile Include="Code\Utils\FileReader.cpp" />
     <ClCompile Include="Code\Utils\HashUtils.cpp" />
     <ClCompile Include="Code\Utils\ObjLoader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\shader_frag.glsl" />
+    <None Include="Shaders\shader_vert.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

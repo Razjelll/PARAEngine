@@ -3,7 +3,11 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-#include "EntitySystem\Entity.hpp"
+#include "Rendering\OpenGL\GLGpuProgram.hpp"
+#include "Core\ResourceManager.hpp"
+#include "Rendering\OpenGL\GLWindow.hpp"
+#include "Core\Engine.hpp"
+
 #include <assert.h>
 #include <iostream>
 #include <chrono>
@@ -14,8 +18,9 @@ namespace PARAEngineTest
 	TEST_CLASS(EntityTest)
 	{
 	public:
-		TEST_METHOD(AddResourceTest)
+		TEST_METHOD(AddShaderTest)
 		{
+			
 			
 		}
 	};

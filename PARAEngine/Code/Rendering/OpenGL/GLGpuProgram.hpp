@@ -32,10 +32,10 @@ namespace Para
 		~GLShader();
 
 	private:
-		void loadResource(const std::string& filename) override;
-		void unloadResource() override;
+		bool loadResource(const std::string& filename) override;
+		bool unloadResource() override;
 
-		void loadFromString(const std::string& source);
+		bool loadFromString(const std::string& source);
 		const GLenum getGLShaderType(const ShaderType shaderType) const;
 		bool validateShader();
 	};

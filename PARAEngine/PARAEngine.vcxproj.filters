@@ -39,9 +39,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="Code\EntitySystem\Component.hpp">
       <Filter>EntitySystem</Filter>
     </ClInclude>
@@ -81,9 +78,6 @@
     <ClInclude Include="Code\Rendering\OpenGL\GLGpuProgram.hpp">
       <Filter>Rendering\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Rendering\OpenGL\GLRenderElement.hpp">
-      <Filter>Rendering\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Rendering\OpenGL\GLVertexBuffer.hpp">
       <Filter>Rendering\OpenGL</Filter>
     </ClInclude>
@@ -104,6 +98,24 @@
     </ClInclude>
     <ClInclude Include="Code\Rendering\Base\RenderingSystem.hpp">
       <Filter>Rendering\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\EntitySystem\CameraComponent.hpp">
+      <Filter>EntitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\Base\RenderScene.hpp">
+      <Filter>Rendering\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\Base\RenderElement.hpp">
+      <Filter>Rendering\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Core\Typedefs.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\Base\MeshRenderer.hpp">
+      <Filter>Rendering\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Rendering\OpenGL\GLMeshRenderer.hpp">
+      <Filter>Rendering\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +146,6 @@
     <ClCompile Include="Code\Rendering\OpenGL\GLGpuProgram.cpp">
       <Filter>Rendering\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Rendering\OpenGL\GLRenderElement.cpp">
-      <Filter>Rendering\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Rendering\OpenGL\GLVertexBuffer.cpp">
       <Filter>Rendering\OpenGL</Filter>
     </ClCompile>
@@ -158,5 +167,22 @@
     <ClCompile Include="Code\Rendering\Base\RenderingSystem.cpp">
       <Filter>Rendering\Base</Filter>
     </ClCompile>
+    <ClCompile Include="Code\EntitySystem\CameraComponent.cpp">
+      <Filter>EntitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Rendering\Base\RenderScene.cpp">
+      <Filter>Rendering\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Rendering\OpenGL\GLMeshRenderer.cpp">
+      <Filter>Rendering\OpenGL</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\shader_frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\shader_vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

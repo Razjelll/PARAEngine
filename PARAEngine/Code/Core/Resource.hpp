@@ -35,11 +35,11 @@ namespace Para
 	class Resource
 	{
 	public:
-		Resource(const std::string& name = NULL, ResourceListener* listener = nullptr) : m_name(name) {}
+		Resource(const std::string& name = NULL, ResourceListener* listener = nullptr);
 		virtual ~Resource();
 
-		void load(const std::string& filename, bool background = false);
-		void unload(bool background = false);
+		bool load(const std::string& filename, bool background = false);
+		bool unload(bool background = false);
 		//TODO mo¿e bêdzie trzeba wstawiæ jeszcze metodê 
 
 		GUID getGUID() { return m_guid; }
@@ -66,8 +66,8 @@ namespace Para
 
 	protected:
 
-		virtual void loadResource(const std::string& filename) = 0;
-		virtual void unloadResource() = 0;
+		virtual bool loadResource(const std::string& filename) = 0;
+		virtual bool unloadResource() = 0;
 	};
 }
 

@@ -77,8 +77,8 @@ namespace Para
 		ShaderType m_shader_type;
 
 	protected:
-		virtual void loadResource(const std::string& filename) = 0;
-		virtual void unloadResource() = 0;
+		virtual bool loadResource(const std::string& filename) = 0;
+		virtual bool unloadResource() = 0;
 
 		
 	};

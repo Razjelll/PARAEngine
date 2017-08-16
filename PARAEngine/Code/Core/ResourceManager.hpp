@@ -8,11 +8,10 @@
  
 namespace Para
 {
-
 	class ResourceManager
 	{
 	public:
-		ResourceManager* get()
+		static ResourceManager* get()
 		{
 			if (m_instance == nullptr)
 			{
@@ -20,14 +19,15 @@ namespace Para
 			}
 			return m_instance;
 		}
-
+		void loadResource(const std::string& name, ResourceType type, const std::string& filename);
 		void addResource(Resource* resource, ResourceType type);
 		void clearAll(ResourceType type) {}
-		void remove(GUID guid, ResourceType type) {}
-		Shader* getShader(GUID guid) {}
-		Shader* getShader(const std::string& name) {}
+		void remove(GUID guid, ResourceType type);
+		void release();
+		Shader* getShader(GUID guid);
+		Shader* getShader(const std::string& name);
 	private:
-		ResourceManager* m_instance;
+		static ResourceManager* m_instance;
 		ResourceManager();
 		~ResourceManager();
 

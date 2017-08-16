@@ -11,66 +11,86 @@
 #include "Rendering\OpenGL\GLWindow.hpp"
 #include "Core\Engine.hpp"
 #include "Utils\ObjLoader.hpp"
-#include "Rendering\OpenGL\GLRenderElement.hpp"
+#include "Rendering\OpenGL\GLMeshRenderer.hpp"
 #include "Rendering\OpenGL\OpenGL\include\freeglut.h"
+#include "Core\ResourceManager.hpp"
+#include "EntitySystem\Entity.hpp"
+#include "Rendering\Base\RenderScene.hpp"
+#include ""
 
 #define DEBUG
 #define GL_CHECK_ERRORS assert(glGetError()== GL_NO_ERROR);
 
 using namespace Para;
 
+void initResourceManager()
+{
+	GLShader* shader = new GLShader(ShaderType::VERTEX_SHADER, "vertexShader");
+	if (shader->load("../PARAEngine/Shaders/shader_vert.glsl"))
+	{
+		ResourceManager::get()->addResource(shader, ResourceType::SHADER);
+	}
+	shader = new GLShader(ShaderType::FRAGMENT_SHADER, "fragmentShader");
+	if (shader->load("../PARAEngine/Shaders/shader_frag.glsl"))
+	{
+		ResourceManager::get()->addResource(shader, ResourceType::SHADER);
+	}
+}
+
 int main(int argcp, char* argv[])
 {
-	//Window* window = new GLWindow(800, 600, "ParaEngine", false, argcp, argv);
-	/*Window* window = new SDLWindow(800, 600, "PARAEngine", false);
-	Engine engine(window);
-	engine.start();*/
-
-	Para::GLWindow* window = new Para::GLWindow(800, 600, "ParaEngine", false, argcp, argv);
+	GLWindow* window = new GLWindow(800, 600, "ParaEngine", false, argcp, argv);
 	window->init();
-	Para::Engine engine;
+	Engine engine;
 	engine.init(window);
 	engine.start();
-	Para::ObjLoader loader;
-	Para::Mesh* mesh = loader.load("D:/kostka.obj");
+	ObjLoader loader;
+	Mesh* mesh = loader.load("D:/kostka.obj");
 	
-	
+	initResourceManager();
+
 	GLGpuProgram* program = new GLGpuProgram();
-	GL_CHECK_ERRORS;
-	//program->addShader(new GLShader(ShaderType::VERTEX_SHADER, "../PARAEngine/Shaders/shader_vert.glsl"));
-	GLShader* shader = new GLShader(ShaderType::VERTEX_SHADER, "shader_vert");
-	shader->load("../PARAEngine/Shaders/shader_vert.glsl");
-	program->addShader(shader);
-	GLShader* shader2 = new GLShader(ShaderType::FRAGMENT_SHADER, "shader_frag");
-	shader2->load("../PARAEngine/Shaders/shader_frag.glsl");
-	program->addShader(shader2);
-	//program->addShader(new GLShader(ShaderType::FRAGMENT_SHADER, "../PARAEngine/Shaders/shader_frag.glsl"));
+	program->addShader(ResourceManager::get()->getShader("vertexShader"));
+	program->addShader(ResourceManager::get()->getShader("fragmentShader"));
 	program->create();
-	GL_CHECK_ERRORS;
 	program->bind();
 	program->addAttribute("inPosition");
 	program->addAttribute("inNormals");
 	program->addAttribute("inUV");
 	program->addUniform("MVP", UniformType::MAT4);
 	program->unbind();
-	GL_CHECK_ERRORS;
 
-	Para::GLRenderElement renderElement;
-	renderElement.load(mesh, program);
+	Entity entity(1);
+	
+	GLMeshRenderer* renderElement = new GLMeshRenderer(entity, program);
+	renderElement->load(mesh);
+	GLMeshRenderer* renderElement2 = new GLMeshRenderer(entity, program);
+	renderElement2->load(mesh);
+	//renderElement.load(mesh, program);
+	RenderScene scene;
+	scene.addElement(renderElement);
+	scene.addElement(renderElement2);
+	
+
 
 	while (true)
 	{
 		GL_CHECK_ERRORS;
 		window->update();
-		renderElement.draw();
+		//renderElement.draw();
+		scene.render();
 		window->swapBuffers();
 	}
 	
 	system("pause");
+	scene.clear();
+	engine.stop();
+	ResourceManager::get()->release();
 	delete mesh;
 	delete program;
 
 	delete window;
+	
 
 	return 0;
 }

@@ -2,8 +2,9 @@
 
 using namespace Para;
 
-Component::Component()
+Component::Component(Entity& owner) : m_owner_entity(owner)
 {
+	
 }
 
 
